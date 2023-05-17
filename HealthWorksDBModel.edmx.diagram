@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="924b90e7dd7042d888836f5692c00a44" Name="Diagram1">
+        <EntityTypeShape EntityType="HealthWorksModel.Appointment" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthWorksModel.Doctor" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthWorksModel.Patient" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthWorksModel.Prescription" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthWorksModel.Role" Width="1.5" PointX="2.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HealthWorksModel.User" Width="1.5" PointX="5" PointY="4.875" IsExpanded="true" />
+        <AssociationConnector Association="HealthWorksModel.FK_Appointment_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthWorksModel.FK_Appointment_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthWorksModel.FK_Prescription_Appointment" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthWorksModel.FK_Prescription_Doctor" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthWorksModel.FK_Prescription_Patient" ManuallyRouted="false" />
+        <AssociationConnector Association="HealthWorksModel.UserRole" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

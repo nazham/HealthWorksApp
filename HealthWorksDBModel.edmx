@@ -1,0 +1,476 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HealthWorksModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" />
+          <Property Name="DoctorID" Type="int" />
+          <Property Name="AppointmentDate" Type="date" />
+          <Property Name="AppointmentTime" Type="datetime" />
+          <Property Name="AmountPaid" Type="money" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Qualification" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="Specialization" Type="varchar" MaxLength="50" />
+          <Property Name="NIC" Type="varchar" MaxLength="12" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="char" MaxLength="1" />
+          <Property Name="MobileNo" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Prescription">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientID" Type="int" />
+          <Property Name="ReferredBy" Type="int" />
+          <Property Name="AppointmentID" Type="int" />
+          <Property Name="DiagnosisDetails" Type="varchar" MaxLength="200" />
+          <Property Name="IssuedDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Roles">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="RoleCode" Type="varchar" MaxLength="10" />
+          <Property Name="RoleName" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserRole">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="RoleID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Appointment_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="DoctorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Appointment">
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="0..1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="AppointmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="ReferredBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_Roles">
+          <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserRole_User">
+          <End Role="User" Type="Self.User" Multiplicity="1" />
+          <End Role="UserRole" Type="Self.UserRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UserRole">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HealthWorksModelStoreContainer">
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Appointment_Doctor" Association="Self.FK_Appointment_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Patient" Association="Self.FK_Appointment_Patient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Appointment" Association="Self.FK_Prescription_Appointment">
+            <End Role="Appointment" EntitySet="Appointment" />
+            <End Role="Prescription" EntitySet="Prescription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Doctor" Association="Self.FK_Prescription_Doctor">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Prescription" EntitySet="Prescription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Patient" Association="Self.FK_Prescription_Patient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Prescription" EntitySet="Prescription" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_Roles" Association="Self.FK_UserRole_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserRole_User" Association="Self.FK_UserRole_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="UserRole" EntitySet="UserRole" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HealthWorksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" />
+          <Property Name="DoctorID" Type="Int32" />
+          <Property Name="AppointmentDate" Type="DateTime" Precision="0" />
+          <Property Name="AppointmentTime" Type="DateTime" Precision="3" />
+          <Property Name="AmountPaid" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_Appointment_Doctor" FromRole="Appointment" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Appointment_Patient" FromRole="Appointment" ToRole="Patient" />
+          <NavigationProperty Name="Prescriptions" Relationship="Self.FK_Prescription_Appointment" FromRole="Appointment" ToRole="Prescription" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="Specialization" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NIC" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Doctor" FromRole="Doctor" ToRole="Appointment" />
+          <NavigationProperty Name="Prescriptions" Relationship="Self.FK_Prescription_Doctor" FromRole="Doctor" ToRole="Prescription" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MobileNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Appointments" Relationship="Self.FK_Appointment_Patient" FromRole="Patient" ToRole="Appointment" />
+          <NavigationProperty Name="Prescriptions" Relationship="Self.FK_Prescription_Patient" FromRole="Patient" ToRole="Prescription" />
+        </EntityType>
+        <EntityType Name="Prescription">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientID" Type="Int32" />
+          <Property Name="ReferredBy" Type="Int32" />
+          <Property Name="AppointmentID" Type="Int32" />
+          <Property Name="DiagnosisDetails" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IssuedDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Appointment" Relationship="Self.FK_Prescription_Appointment" FromRole="Prescription" ToRole="Appointment" />
+          <NavigationProperty Name="Doctor" Relationship="Self.FK_Prescription_Doctor" FromRole="Prescription" ToRole="Doctor" />
+          <NavigationProperty Name="Patient" Relationship="Self.FK_Prescription_Patient" FromRole="Prescription" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="RoleCode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="RoleName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Users" Relationship="Self.UserRole" FromRole="Roles" ToRole="User" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Username" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Roles" Relationship="Self.UserRole" FromRole="User" ToRole="Roles" />
+        </EntityType>
+        <Association Name="FK_Appointment_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="DoctorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Appointment">
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="0..1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Appointment">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="AppointmentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Doctor">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="ReferredBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Prescription_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
+          <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Prescription">
+              <PropertyRef Name="PatientID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="UserRole">
+          <End Role="Roles" Type="Self.Role" Multiplicity="*" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="HealthWorksEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Appointments" EntityType="Self.Appointment" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+          <EntitySet Name="Patients" EntityType="Self.Patient" />
+          <EntitySet Name="Prescriptions" EntityType="Self.Prescription" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Appointment_Doctor" Association="Self.FK_Appointment_Doctor">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Patient" Association="Self.FK_Appointment_Patient">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Appointment" Association="Self.FK_Prescription_Appointment">
+            <End Role="Appointment" EntitySet="Appointments" />
+            <End Role="Prescription" EntitySet="Prescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Doctor" Association="Self.FK_Prescription_Doctor">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Prescription" EntitySet="Prescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Prescription_Patient" Association="Self.FK_Prescription_Patient">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Prescription" EntitySet="Prescriptions" />
+          </AssociationSet>
+          <AssociationSet Name="UserRole" Association="Self.UserRole">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HealthWorksModelStoreContainer" CdmEntityContainer="HealthWorksEntities1">
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="HealthWorksModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="DoctorID" ColumnName="DoctorID" />
+                <ScalarProperty Name="AppointmentDate" ColumnName="AppointmentDate" />
+                <ScalarProperty Name="AppointmentTime" ColumnName="AppointmentTime" />
+                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="HealthWorksModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Specialization" ColumnName="Specialization" />
+                <ScalarProperty Name="NIC" ColumnName="NIC" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="HealthWorksModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prescriptions">
+            <EntityTypeMapping TypeName="HealthWorksModel.Prescription">
+              <MappingFragment StoreEntitySet="Prescription">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="ReferredBy" ColumnName="ReferredBy" />
+                <ScalarProperty Name="AppointmentID" ColumnName="AppointmentID" />
+                <ScalarProperty Name="DiagnosisDetails" ColumnName="DiagnosisDetails" />
+                <ScalarProperty Name="IssuedDate" ColumnName="IssuedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="HealthWorksModel.Role">
+              <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RoleCode" ColumnName="RoleCode" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="HealthWorksModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="UserRole" TypeName="HealthWorksModel.UserRole" StoreEntitySet="UserRole">
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="ID" ColumnName="RoleID" />
+            </EndProperty>
+            <EndProperty Name="User">
+              <ScalarProperty Name="ID" ColumnName="UserID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
