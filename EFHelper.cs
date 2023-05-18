@@ -91,5 +91,24 @@ namespace HealthWorksApp
 
             return res;
         }
+
+        internal static int DeleteDoctor(int doctorID)
+        {
+            int res = 0;
+            using (var context = GetContext())
+            {
+                var doctor = context.Doctors.Where(doc => doc.ID == doctorID).FirstOrDefault();
+                if (doctor != null)
+                {
+                    context.Doctors.Remove(doctor);
+
+                    res = context.SaveChanges();
+
+                }
+            }
+
+            return res;
+        }
+
     }
 }

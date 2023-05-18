@@ -60,6 +60,21 @@ namespace HealthWorksApp
 
         private void btnDltDoctor_Click(object sender, EventArgs e)
         {
+            var selectedItem = lstDoctors.SelectedItems[0];
+            int doctorId = (int)selectedItem.Tag;
+            int res = EFHelper.DeleteDoctor(doctorId);
+            if (res > 0)
+            {
+                MessageBox.Show($"Doctor was successfully Deleted. His Id is {res}", "Success",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Error in deleting a doctor", "Error", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            lstDoctors.Items.Clear();
+            LoadDoctors();
 
         }
 
