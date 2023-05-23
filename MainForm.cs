@@ -22,5 +22,11 @@ namespace HealthWorksApp
             ViewDoctors vDoctors = new ViewDoctors();
             vDoctors.ShowDialog();
         }
+
+        private void btnAddPatient_Click(object sender, EventArgs e)
+        {
+            AddAppointment addAppointment = new AddAppointment();
+            addAppointment.ShowDialog();
+        }
     }
 }
