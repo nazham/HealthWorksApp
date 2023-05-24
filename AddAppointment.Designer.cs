@@ -304,6 +304,7 @@
             this.txtMobileNo.Name = "txtMobileNo";
             this.txtMobileNo.Size = new System.Drawing.Size(279, 30);
             this.txtMobileNo.TabIndex = 4;
+            this.txtMobileNo.TextChanged += new System.EventHandler(this.txtMobileNo_TextChanged);
             // 
             // txtPatientName
             // 
