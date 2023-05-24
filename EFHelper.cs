@@ -136,6 +136,30 @@ namespace HealthWorksApp
             return newPatId;
         }
 
+        public static List<PatientModel> GetPatients()
+        {
+            List<PatientModel> patientList = new List<PatientModel>();
+
+            using (var context = GetContext())
+            {
+                var list = context.Patients.Select(
+
+                    pat => new PatientModel()
+                    {
+                        ID = pat.ID,
+                        Name = pat.Name,
+                        Age = (int)pat.Age,
+                        Gender = pat.Gender,
+                        MobileNO = pat.MobileNo
+                    }
+                    );
+                patientList.AddRange(list);
+
+
+            }
+            return patientList;
+        }
+
         internal static int AddAppointment(AppointmentModel appModel)
         {
             int newAppId = 0;

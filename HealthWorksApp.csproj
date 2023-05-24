@@ -116,6 +116,12 @@
     <Compile Include="User.cs">
       <DependentUpon>HealthWorksDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewAppointments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewAppointments.Designer.cs">
+      <DependentUpon>ViewAppointments.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewDoctors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ViewAppointments.resx">
+      <DependentUpon>ViewAppointments.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewDoctors.resx">
       <DependentUpon>ViewDoctors.cs</DependentUpon>
     </EmbeddedResource>
