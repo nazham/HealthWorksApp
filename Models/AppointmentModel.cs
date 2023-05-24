@@ -10,11 +10,11 @@ namespace HealthWorksApp.Models
     internal class AppointmentModel
     {
         public int ID { get; set; }
-        public PatientModel Patient { get; set; }
-        public DoctorModel Doctor { get; set; }
+        public int PatientID { get; set; }
+        public int DoctorID { get; set; }
         public DateTime AppointmentDate { get; set; }
         public DateTime AppointmentTime { get; set; }
-        public SqlMoney AmountPaid { get; set; }
+        public Decimal AmountPaid { get; set; }
 
     }
 }

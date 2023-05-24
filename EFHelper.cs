@@ -110,5 +110,56 @@ namespace HealthWorksApp
             return res;
         }
 
+        internal static int AddPatient(PatientModel model)
+        {
+            int newPatId = 0;
+            using (var context = GetContext())
+            {
+                Patient pat = new Patient()
+                {
+                    Name = model.Name,
+
+                    Gender = model.Gender,
+                    
+                    MobileNo = model.MobileNO,
+
+                };
+
+                context.Patients.Add(pat);
+
+                int res = context.SaveChanges();
+                if (res > 0)
+                {
+                    newPatId = pat.ID;
+                }
+            };
+            return newPatId;
+        }
+
+        internal static int AddAppointment(AppointmentModel appModel)
+        {
+            int newAppId = 0;
+            using (var context = GetContext())
+            {
+                Appointment app = new Appointment()
+                {
+                    PatientID = appModel.PatientID,
+                    DoctorID = appModel.DoctorID,
+                    AppointmentDate = appModel.AppointmentDate,
+                    AppointmentTime = appModel.AppointmentTime,
+                    AmountPaid = appModel.AmountPaid,
+
+                };
+
+                context.Appointments.Add(app);
+
+                int res = context.SaveChanges();
+                if (res > 0)
+                {
+                    newAppId = app.ID;
+                }
+            };
+            return newAppId;
+        }
     }
 }

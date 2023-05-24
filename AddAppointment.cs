@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HealthWorksApp.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,24 +33,73 @@ namespace HealthWorksApp
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+      
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
+            int patientId = 0;
+            //Add patient details
+            PatientModel model = new PatientModel()
+            {
+                Name = txtPatientName.Text,
+                MobileNO = txtMobileNo.Text,
+                Gender = (string)CBGender.SelectedItem,
+                Age = int.Parse(txtAge.Text)
 
-        }
+
+            };
+
+            patientId = EFHelper.AddPatient(model);
+
+            if (patientId > 0) //If patient record is successful or existing
+            {
+                //Add appointment
+                AppointmentModel appModel = new AppointmentModel()
+                {
+                    PatientID = patientId,
+                    DoctorID = (int)CBSelectDoc.SelectedValue,
+                    AppointmentDate = DTAppointmentDate.Value,
+                    AppointmentTime = DTAppointmentTime.Value,
+                    AmountPaid = decimal.Parse(txtAmount.Text)
+                };
+
+                int res = EFHelper.AddAppointment(appModel);
+                if (res > 0)
+                {
+                    MessageBox.Show($"Appointment for {txtPatientName.Text} was created successfully!",
+                        "Appointment Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error in appointment creation", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                }
+            }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        private void AddAppointment_Load(object sender, EventArgs e)
+        {
+            var doctorList = EFHelper.GetDoctors();
+            CBSelectDoc.DataSource = doctorList;
+            CBSelectDoc.DisplayMember = "Name";
+            CBSelectDoc.ValueMember = "ID";
+        }
+
+        private void DTAppointmentDate_FormatChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DTAppointmentTime_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+
+        
 }
