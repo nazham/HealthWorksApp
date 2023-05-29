@@ -28,5 +28,11 @@ namespace HealthWorksApp
             AddAppointment addAppointment = new AddAppointment();
             addAppointment.ShowDialog();
         }
+
+        private void btnViewApp_Click(object sender, EventArgs e)
+        {
+            ViewAppointments vAppoint = new ViewAppointments();
+            vAppoint.ShowDialog();
+        }
     }
 }

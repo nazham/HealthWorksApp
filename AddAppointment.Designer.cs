@@ -98,7 +98,7 @@
             this.TLPAppointmentDetails.ColumnCount = 3;
             this.TLPAppointmentDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.83471F));
             this.TLPAppointmentDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.16529F));
-            this.TLPAppointmentDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 179F));
+            this.TLPAppointmentDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 181F));
             this.TLPAppointmentDetails.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 27F));
             this.TLPAppointmentDetails.Controls.Add(this.label5, 0, 1);
             this.TLPAppointmentDetails.Controls.Add(this.label6, 0, 3);
@@ -147,7 +147,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(20, 87);
+            this.label7.Location = new System.Drawing.Point(19, 87);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(171, 25);
             this.label7.TabIndex = 2;
@@ -158,7 +158,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(41, 7);
+            this.label8.Location = new System.Drawing.Point(40, 7);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(129, 25);
             this.label8.TabIndex = 0;
@@ -168,7 +168,7 @@
             // 
             this.txtAmount.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAmount.Location = new System.Drawing.Point(253, 126);
+            this.txtAmount.Location = new System.Drawing.Point(252, 126);
             this.txtAmount.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAmount.Name = "txtAmount";
             this.txtAmount.Size = new System.Drawing.Size(175, 30);
@@ -179,7 +179,7 @@
             this.CBSelectDoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.CBSelectDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CBSelectDoc.FormattingEnabled = true;
-            this.CBSelectDoc.Location = new System.Drawing.Point(245, 6);
+            this.CBSelectDoc.Location = new System.Drawing.Point(244, 6);
             this.CBSelectDoc.Margin = new System.Windows.Forms.Padding(4);
             this.CBSelectDoc.Name = "CBSelectDoc";
             this.CBSelectDoc.Size = new System.Drawing.Size(191, 28);
@@ -190,7 +190,7 @@
             this.DTAppointmentDate.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DTAppointmentDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTAppointmentDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DTAppointmentDate.Location = new System.Drawing.Point(276, 48);
+            this.DTAppointmentDate.Location = new System.Drawing.Point(275, 48);
             this.DTAppointmentDate.Margin = new System.Windows.Forms.Padding(4);
             this.DTAppointmentDate.Name = "DTAppointmentDate";
             this.DTAppointmentDate.Size = new System.Drawing.Size(129, 23);
@@ -202,7 +202,7 @@
             this.DTAppointmentTime.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.DTAppointmentTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DTAppointmentTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DTAppointmentTime.Location = new System.Drawing.Point(278, 88);
+            this.DTAppointmentTime.Location = new System.Drawing.Point(276, 88);
             this.DTAppointmentTime.Margin = new System.Windows.Forms.Padding(4);
             this.DTAppointmentTime.Name = "DTAppointmentTime";
             this.DTAppointmentTime.Size = new System.Drawing.Size(126, 23);
@@ -228,7 +228,7 @@
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 36.02771F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 63.97229F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 180F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.label3, 0, 2);
@@ -278,7 +278,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(46, 87);
+            this.label3.Location = new System.Drawing.Point(45, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 25);
             this.label3.TabIndex = 2;
@@ -299,7 +299,7 @@
             // 
             this.txtMobileNo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMobileNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMobileNo.Location = new System.Drawing.Point(180, 5);
+            this.txtMobileNo.Location = new System.Drawing.Point(178, 5);
             this.txtMobileNo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMobileNo.Name = "txtMobileNo";
             this.txtMobileNo.Size = new System.Drawing.Size(279, 30);
@@ -310,7 +310,7 @@
             // 
             this.txtPatientName.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtPatientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPatientName.Location = new System.Drawing.Point(180, 45);
+            this.txtPatientName.Location = new System.Drawing.Point(178, 45);
             this.txtPatientName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtPatientName.Name = "txtPatientName";
             this.txtPatientName.Size = new System.Drawing.Size(279, 30);
@@ -320,11 +320,12 @@
             // 
             this.txtAge.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAge.Location = new System.Drawing.Point(260, 125);
+            this.txtAge.Location = new System.Drawing.Point(258, 125);
             this.txtAge.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAge.Name = "txtAge";
             this.txtAge.Size = new System.Drawing.Size(119, 30);
             this.txtAge.TabIndex = 7;
+            this.txtAge.TextChanged += new System.EventHandler(this.txtAge_TextChanged);
             // 
             // CBGender
             // 
@@ -334,7 +335,7 @@
             this.CBGender.Items.AddRange(new object[] {
             "M",
             "F"});
-            this.CBGender.Location = new System.Drawing.Point(259, 82);
+            this.CBGender.Location = new System.Drawing.Point(257, 82);
             this.CBGender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CBGender.Name = "CBGender";
             this.CBGender.Size = new System.Drawing.Size(121, 33);
@@ -343,13 +344,15 @@
             // btnFind
             // 
             this.btnFind.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnFind.Location = new System.Drawing.Point(474, 6);
+            this.btnFind.Enabled = false;
+            this.btnFind.Location = new System.Drawing.Point(472, 6);
             this.btnFind.Margin = new System.Windows.Forms.Padding(4);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(100, 28);
             this.btnFind.TabIndex = 9;
             this.btnFind.Text = "FIND";
             this.btnFind.UseVisualStyleBackColor = true;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // tableLayoutPanel2
             // 

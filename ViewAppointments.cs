@@ -17,34 +17,36 @@ namespace HealthWorksApp
         {
             InitializeComponent();
         }
-
-        private void btnAddDoctor_Click(object sender, EventArgs e)
+        private void btnAddAppointment_Click(object sender, EventArgs e)
         {
             AddAppointment aAppointment = new AddAppointment();
             aAppointment.ShowDialog();
 
             lstAppointments.Items.Clear();
             LoadAppointments();
+
+            
         }
 
 
         private void ViewAppointments_Load(object sender, EventArgs e)
         {
-
+            LoadAppointments();
         }
 
         private void LoadAppointments()
         {
-            var patientList = EFHelper.GetPatients();
+            var appList = EFHelper.GetAppointments();
 
-            foreach (var patient in patientList)
+            foreach (var appointment in appList)
             {
                 ListViewItem item = new ListViewItem();
-                item.Tag = patient.ID;
-                item.Text = patient.Name;
-                item.SubItems.Add(patient.MobileNO);
-                item.SubItems.Add(patient.Age);
-                item.SubItems.Add(patient.Gender);
+                item.Tag = appointment.ID;
+                item.Text = appointment.PatientName;
+                item.SubItems.Add(appointment.DoctorName);
+                item.SubItems.Add(appointment.AppointmentDate.ToShortDateString());
+                item.SubItems.Add(appointment.AppointmentTime.ToShortTimeString());
+                item.SubItems.Add(appointment.AmountPaid.ToString());
                 
 
                 lstAppointments.Items.Add(item);
@@ -52,45 +54,41 @@ namespace HealthWorksApp
             }
         }
 
-        private void lstDoctors_SelectedIndexChanged(object sender, EventArgs e)
+     
+        private void btnDltAppointment_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnDltDoctor_Click(object sender, EventArgs e)
-        {
+            if (lstAppointments.SelectedItems.Count > 0)
+            { 
             var selectedItem = lstAppointments.SelectedItems[0];
-            int doctorId = (int)selectedItem.Tag;
-            int res = EFHelper.DeleteDoctor(doctorId);
-            if (res > 0)
-            {
-                MessageBox.Show($"Doctor was successfully Deleted. His Id is {res}", "Success",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+           
+                int appId = (int)selectedItem.Tag;
+                int res = EFHelper.DeleteAppointment(appId);
+                if (res > 0)
+                {
+                    MessageBox.Show($"Appointment was successfully Deleted. It's Id is {res}", "Success",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error in deleting a Appointment", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Error in deleting a doctor", "Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("You Did not select an appointment to Delete", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
             }
+        
             lstAppointments.Items.Clear();
-            LoadDoctors();
+            LoadAppointments();
 
         }
 
-        private void btnEditDoc_Click(object sender, EventArgs e)
-        {
-            var selectedItem = lstAppointments.SelectedItems[0];
-            int doctorId = (int)selectedItem.Tag;
-            DoctorModel doctor = EFHelper.GetDoctors().Where(doc => doc.ID == doctorId).FirstOrDefault();
 
-            AddEditDoctor editForm = new AddEditDoctor(doctor);
-            editForm.ShowDialog();
 
-            lstAppointments.Items.Clear();
-            LoadDoctors();
 
-        }
 
-       
+
     }
 }

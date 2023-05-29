@@ -59,19 +59,26 @@ namespace HealthWorksApp
         }
 
         private void btnDltDoctor_Click(object sender, EventArgs e)
-        {
-            var selectedItem = lstDoctors.SelectedItems[0];
-            int doctorId = (int)selectedItem.Tag;
-            int res = EFHelper.DeleteDoctor(doctorId);
-            if (res > 0)
+        {   if (lstDoctors.SelectedItems.Count > 0)
             {
-                MessageBox.Show($"Doctor was successfully Deleted. His Id is {res}", "Success",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                var selectedItem = lstDoctors.SelectedItems[0];
+                int doctorId = (int)selectedItem.Tag;
+                int res = EFHelper.DeleteDoctor(doctorId);
+                if (res > 0)
+                {
+                    MessageBox.Show($"Doctor was successfully Deleted. His Id is {res}", "Success",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Error in deleting a doctor", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
             }
             else
             {
-                MessageBox.Show("Error in deleting a doctor", "Error", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("You Did not select a Doctor to Delete", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
             }
             lstDoctors.Items.Clear();
             LoadDoctors();
@@ -80,15 +87,23 @@ namespace HealthWorksApp
 
         private void btnEditDoc_Click(object sender, EventArgs e)
         {
-            var selectedItem = lstDoctors.SelectedItems[0];
-            int doctorId = (int)selectedItem.Tag;
-            DoctorModel doctor = EFHelper.GetDoctors().Where(doc => doc.ID == doctorId).FirstOrDefault();
+            if (lstDoctors.SelectedItems.Count > 0)
+            {
+                var selectedItem = lstDoctors.SelectedItems[0];
+                int doctorId = (int)selectedItem.Tag;
+                DoctorModel doctor = EFHelper.GetDoctors().Where(doc => doc.ID == doctorId).FirstOrDefault();
 
-            AddEditDoctor editForm = new AddEditDoctor(doctor);
-            editForm.ShowDialog();
-
+                AddEditDoctor editForm = new AddEditDoctor(doctor);
+                editForm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("You Did not select a Doctor to Edit", "Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+            }
             lstDoctors.Items.Clear();
             LoadDoctors();
+
 
         }
     }

@@ -136,28 +136,28 @@ namespace HealthWorksApp
             return newPatId;
         }
 
-        public static List<PatientModel> GetPatients()
+        public static PatientModel GetPatient(string mobileNum)
         {
-            List<PatientModel> patientList = new List<PatientModel>();
+            PatientModel patModel = null;
+
+        
+            
 
             using (var context = GetContext())
             {
-                var list = context.Patients.Select(
+                var patient = context.Patients.Where(pat => pat.MobileNo == mobileNum).FirstOrDefault();
+                patModel = new PatientModel();
 
-                    pat => new PatientModel()
-                    {
-                        ID = pat.ID,
-                        Name = pat.Name,
-                        Age = (int)pat.Age,
-                        Gender = pat.Gender,
-                        MobileNO = pat.MobileNo
-                    }
-                    );
-                patientList.AddRange(list);
-
+                    patModel.ID = patient.ID;
+                   patModel.Name = patient.Name; 
+                    patModel.Gender = patient.Gender;
+                    patModel.MobileNO = patient.MobileNo;
+                    patModel.Age = (int)patient.Age;
+                    
+           
 
             }
-            return patientList;
+            return patModel;
         }
 
         internal static int AddAppointment(AppointmentModel appModel)
@@ -184,6 +184,50 @@ namespace HealthWorksApp
                 }
             };
             return newAppId;
+        }
+
+        internal static List<AppointmentModel> GetAppointments()
+        {
+            var appList = new List<AppointmentModel>();
+
+            using (var context = GetContext())
+            {
+                var results = from app in context.Appointments
+                              join pat in context.Patients on app.PatientID equals pat.ID
+                              join doc in context.Doctors on app.DoctorID equals doc.ID
+                              select new AppointmentModel
+                              {
+                                  ID  = app.ID,
+                                  DoctorID = (int)app.DoctorID,
+                                  PatientID = (int)app.PatientID,
+                                  DoctorName = doc.Name,
+                                  PatientName = pat.Name,
+                                  AppointmentDate = (DateTime)app.AppointmentDate,
+                                  AppointmentTime = (DateTime)app.AppointmentTime,
+                                  AmountPaid = (decimal)app.AmountPaid,
+                              };
+                if(results != null)
+                    appList.AddRange(results);
+            }
+            return appList;
+        }
+
+        internal static int DeleteAppointment(int appID)
+        {
+            int res = 0;
+            using (var context = GetContext())
+            {
+                var appointment = context.Appointments.Where(app => app.ID == appID).FirstOrDefault();
+                if (appointment != null)
+                {
+                    context.Appointments.Remove(appointment);
+
+                    res = context.SaveChanges();
+
+                }
+            }
+
+            return res;
         }
     }
 }

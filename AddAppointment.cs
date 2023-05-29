@@ -102,9 +102,38 @@ namespace HealthWorksApp
 
         private void txtMobileNo_TextChanged(object sender, EventArgs e)
         {
+            TextBox typedTextBox = (TextBox)sender;
+            int length = typedTextBox.Text.Length;
+            if (length > 0)
+            {
+                btnFind.Enabled = true;
+
+            }
+            else
+                btnFind.Enabled = false;
+
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            PatientModel patient = EFHelper.GetPatient(txtMobileNo.Text);
+            if (patient != null)
+            {
+                txtPatientName.Text = patient.Name;
+                txtAge.Text = patient.Age.ToString();
+                CBGender.Text = patient.Gender.ToString(); 
+            }
+            else
+            {
+                MessageBox.Show("Patient not found", "Not Found", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtAge_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
 
-        
 }
