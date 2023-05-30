@@ -13,9 +13,11 @@ namespace HealthWorksApp
 {
     public partial class ViewAppointments : Form
     {
+        List<AppointmentModel> appList;
         public ViewAppointments()
         {
             InitializeComponent();
+            appList = new List<AppointmentModel>();
         }
         private void btnAddAppointment_Click(object sender, EventArgs e)
         {
@@ -25,7 +27,6 @@ namespace HealthWorksApp
             lstAppointments.Items.Clear();
             LoadAppointments();
 
-            
         }
 
 
@@ -36,9 +37,14 @@ namespace HealthWorksApp
 
         private void LoadAppointments()
         {
-            var appList = EFHelper.GetAppointments();
+            appList = EFHelper.GetAppointments();
 
-            foreach (var appointment in appList)
+            PrepareAppointmentList(appList);
+        }
+
+        private void PrepareAppointmentList(List<AppointmentModel> list)
+        {
+            foreach (var appointment in list)
             {
                 ListViewItem item = new ListViewItem();
                 item.Tag = appointment.ID;
@@ -47,7 +53,7 @@ namespace HealthWorksApp
                 item.SubItems.Add(appointment.AppointmentDate.ToShortDateString());
                 item.SubItems.Add(appointment.AppointmentTime.ToShortTimeString());
                 item.SubItems.Add(appointment.AmountPaid.ToString());
-                
+
 
                 lstAppointments.Items.Add(item);
 
@@ -85,10 +91,26 @@ namespace HealthWorksApp
 
         }
 
+        private void txtSearchApp_TextChanged(object sender, EventArgs e)
+        {
+            TextBox searchTB = (TextBox)sender;
+            if (searchTB.Text.Length > 0)
+            {
+                string searchText = searchTB.Text.ToLower();
+                var filterRecords = appList.Where(app =>
+                                                  app.DoctorName.ToLower().Contains(searchText) ||
+                                                  app.PatientName.ToLower().Contains(searchText)
+                                                  );
 
+                lstAppointments.Items.Clear();
+                PrepareAppointmentList(filterRecords.ToList());
+            }
 
-
-
-
+            else
+            {
+                lstAppointments.Items.Clear ();
+                LoadAppointments();
+            }
+        }
     }
 }

@@ -159,11 +159,11 @@
             this.tableLayoutPanel2.Controls.Add(this.txtSearchApp, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(450, 58);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
@@ -188,6 +188,7 @@
             this.txtSearchApp.Name = "txtSearchApp";
             this.txtSearchApp.Size = new System.Drawing.Size(260, 30);
             this.txtSearchApp.TabIndex = 6;
+            this.txtSearchApp.TextChanged += new System.EventHandler(this.txtSearchApp_TextChanged);
             // 
             // ViewAppointments
             // 
@@ -195,7 +196,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 463);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewAppointments";
             this.Text = "View Appointments";
             this.Load += new System.EventHandler(this.ViewAppointments_Load);

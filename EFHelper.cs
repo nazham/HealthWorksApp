@@ -123,6 +123,8 @@ namespace HealthWorksApp
                     
                     MobileNo = model.MobileNO,
 
+                    Age = model.Age
+
                 };
 
                 context.Patients.Add(pat);
