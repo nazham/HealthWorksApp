@@ -14,6 +14,7 @@ namespace HealthWorksApp
     public partial class ViewAppointments : Form
     {
         List<AppointmentModel> appList;
+        AppointmentModel appointmentToPrint;
         public ViewAppointments()
         {
             InitializeComponent();
@@ -111,6 +112,40 @@ namespace HealthWorksApp
                 lstAppointments.Items.Clear ();
                 LoadAppointments();
             }
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            if (lstAppointments.SelectedItems.Count > 0)
+            {
+                var selectedItem = lstAppointments.SelectedItems[0];
+
+                int appId = (int)selectedItem.Tag;
+                appointmentToPrint = EFHelper.GetAppointments()
+                                        .Where(app => app.ID == appId)
+                                        .FirstOrDefault();
+                printPreviewDialog1.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("You Did not select an appointment to Print", "Selection Error", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+            }
+        }
+
+
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+            string doctorName = appointmentToPrint.DoctorName;
+
+            System.Drawing.Font printFont =
+                new System.Drawing.Font("Arial", 35,
+                System.Drawing.FontStyle.Regular);
+            e.Graphics.DrawString(doctorName, printFont,
+                System.Drawing.Brushes.Red, 0, 0);
+
+            
         }
     }
 }

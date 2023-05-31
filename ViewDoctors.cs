@@ -112,7 +112,27 @@ namespace HealthWorksApp
             //string keyword = txtse
         }
 
-       
+       // private void textSearch_TextChanged(object sender, EventArgs e);
+        //{
+        //    TextBox searchTB = (TextBox)sender;
+        //    if (searchTB.Text.Length > 0)
+        //    {
+        //        string searchText = searchTB.Text.ToLower();
+        //        var filterRecords = appList.Where(app =>
+        //                                          app.DoctorName.ToLower().Contains(searchText) ||
+        //                                          app.PatientName.ToLower().Contains(searchText)
+        //                                          );
+
+        //        lstAppointments.Items.Clear();
+        //        PrepareAppointmentList(filterRecords.ToList());
+        //    }
+
+        //    else
+        //    {
+        //        lstAppointments.Items.Clear();
+        //        LoadAppointments();
+        //    }
+        //}
     }
     }
 

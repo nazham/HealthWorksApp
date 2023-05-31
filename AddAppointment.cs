@@ -130,10 +130,7 @@ namespace HealthWorksApp
             }
         }
 
-        private void txtAge_TextChanged(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 
 }
