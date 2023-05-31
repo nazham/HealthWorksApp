@@ -89,6 +89,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HealthWorksDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="LogIN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIN.Designer.cs">
+      <DependentUpon>LogIN.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddEditDoctor.resx">
       <DependentUpon>AddEditDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogIN.resx">
+      <DependentUpon>LogIN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
