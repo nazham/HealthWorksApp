@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace HealthWorksApp
 {
@@ -20,6 +21,8 @@ namespace HealthWorksApp
 
         private void LogIN_Load(object sender, EventArgs e)
         {
+            EFHelper.SetPlaceholder(txtUserName, "Enter your username");
+            EFHelper.SetPlaceholder(txtPassword, "Enter your password");
 
         }
 
@@ -77,19 +80,13 @@ namespace HealthWorksApp
            }
         }
 
-        private void txtUserName_TabIndexChanged(object sender, EventArgs e)
+        
+
+        private void btnRegister_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtPassword_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            Register register = new Register();
+            this.Hide();
+            register.ShowDialog();
         }
     }
 }
