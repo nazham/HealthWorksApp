@@ -231,5 +231,17 @@ namespace HealthWorksApp
 
             return res;
         }
+
+        internal static bool CheckCredentials(string userName, string password)
+        {
+            bool result = false;
+
+            using (var context = GetContext())
+            {
+                result = context.Users.Any(user => user.Password == password &&
+                                                        user.Username == userName);
+            }
+            return result;
+        }
     }
 }

@@ -31,15 +31,16 @@
             this.btnViewDoctor = new System.Windows.Forms.Button();
             this.btnAddPatient = new System.Windows.Forms.Button();
             this.btnViewApp = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnViewDoctor
             // 
             this.btnViewDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewDoctor.Location = new System.Drawing.Point(205, 101);
+            this.btnViewDoctor.Location = new System.Drawing.Point(39, 148);
             this.btnViewDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnViewDoctor.Name = "btnViewDoctor";
-            this.btnViewDoctor.Size = new System.Drawing.Size(137, 32);
+            this.btnViewDoctor.Size = new System.Drawing.Size(109, 32);
             this.btnViewDoctor.TabIndex = 0;
             this.btnViewDoctor.Text = "View Doctor";
             this.btnViewDoctor.UseVisualStyleBackColor = true;
@@ -48,10 +49,10 @@
             // btnAddPatient
             // 
             this.btnAddPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPatient.Location = new System.Drawing.Point(205, 151);
-            this.btnAddPatient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddPatient.Location = new System.Drawing.Point(39, 215);
+            this.btnAddPatient.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddPatient.Name = "btnAddPatient";
-            this.btnAddPatient.Size = new System.Drawing.Size(137, 31);
+            this.btnAddPatient.Size = new System.Drawing.Size(109, 31);
             this.btnAddPatient.TabIndex = 1;
             this.btnAddPatient.Text = "Add Patient";
             this.btnAddPatient.UseVisualStyleBackColor = true;
@@ -59,19 +60,32 @@
             // 
             // btnViewApp
             // 
-            this.btnViewApp.Location = new System.Drawing.Point(438, 65);
+            this.btnViewApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewApp.Location = new System.Drawing.Point(39, 283);
             this.btnViewApp.Name = "btnViewApp";
-            this.btnViewApp.Size = new System.Drawing.Size(100, 67);
+            this.btnViewApp.Size = new System.Drawing.Size(153, 31);
             this.btnViewApp.TabIndex = 2;
             this.btnViewApp.Text = "View Appointment";
             this.btnViewApp.UseVisualStyleBackColor = true;
             this.btnViewApp.Click += new System.EventHandler(this.btnViewApp_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(174, 215);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(119, 31);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "View Patients";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 466);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnViewApp);
             this.Controls.Add(this.btnAddPatient);
             this.Controls.Add(this.btnViewDoctor);
@@ -79,6 +93,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.ResumeLayout(false);
 
         }
@@ -88,5 +103,6 @@
         private System.Windows.Forms.Button btnViewDoctor;
         private System.Windows.Forms.Button btnAddPatient;
         private System.Windows.Forms.Button btnViewApp;
+        private System.Windows.Forms.Button button1;
     }
 }

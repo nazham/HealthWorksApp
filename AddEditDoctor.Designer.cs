@@ -64,7 +64,6 @@
             this.label1.Size = new System.Drawing.Size(90, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "Name :";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtName
             // 
@@ -73,7 +72,6 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(334, 34);
             this.txtName.TabIndex = 3;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtQualification
             // 
@@ -82,7 +80,6 @@
             this.txtQualification.Name = "txtQualification";
             this.txtQualification.Size = new System.Drawing.Size(334, 34);
             this.txtQualification.TabIndex = 5;
-            this.txtQualification.TextChanged += new System.EventHandler(this.txtQualification_TextChanged);
             // 
             // label2
             // 
@@ -93,7 +90,6 @@
             this.label2.Size = new System.Drawing.Size(158, 29);
             this.label2.TabIndex = 4;
             this.label2.Text = "Qualification :";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtSpecialization
             // 
@@ -102,7 +98,6 @@
             this.txtSpecialization.Name = "txtSpecialization";
             this.txtSpecialization.Size = new System.Drawing.Size(334, 34);
             this.txtSpecialization.TabIndex = 9;
-            this.txtSpecialization.TextChanged += new System.EventHandler(this.txtSpecialization_TextChanged);
             // 
             // label3
             // 
@@ -113,7 +108,6 @@
             this.label3.Size = new System.Drawing.Size(175, 29);
             this.label3.TabIndex = 8;
             this.label3.Text = "Specialization :";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -124,7 +118,6 @@
             this.label4.Size = new System.Drawing.Size(106, 29);
             this.label4.TabIndex = 6;
             this.label4.Text = "Gender :";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -135,7 +128,6 @@
             this.label5.Size = new System.Drawing.Size(66, 29);
             this.label5.TabIndex = 10;
             this.label5.Text = "NIC :";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // txtNic
             // 
@@ -144,7 +136,6 @@
             this.txtNic.Name = "txtNic";
             this.txtNic.Size = new System.Drawing.Size(334, 34);
             this.txtNic.TabIndex = 11;
-            this.txtNic.TextChanged += new System.EventHandler(this.txtNic_TextChanged);
             // 
             // label6
             // 
@@ -155,7 +146,6 @@
             this.label6.Size = new System.Drawing.Size(137, 29);
             this.label6.TabIndex = 12;
             this.label6.Text = "Mobile No :";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // txtMobileNo
             // 
@@ -164,7 +154,6 @@
             this.txtMobileNo.Name = "txtMobileNo";
             this.txtMobileNo.Size = new System.Drawing.Size(334, 34);
             this.txtMobileNo.TabIndex = 13;
-            this.txtMobileNo.TextChanged += new System.EventHandler(this.txtMobileNo_TextChanged);
             // 
             // cmbGender
             // 
@@ -177,7 +166,6 @@
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(67, 37);
             this.cmbGender.TabIndex = 14;
-            this.cmbGender.SelectedIndexChanged += new System.EventHandler(this.cmbGender_SelectedIndexChanged);
             // 
             // btnCancel
             // 

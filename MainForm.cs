@@ -34,5 +34,10 @@ namespace HealthWorksApp
             ViewAppointments vAppoint = new ViewAppointments();
             vAppoint.ShowDialog();
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
