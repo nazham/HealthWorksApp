@@ -88,5 +88,10 @@ namespace HealthWorksApp
             this.Hide();
             register.ShowDialog();
         }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

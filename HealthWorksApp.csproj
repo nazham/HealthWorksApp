@@ -206,6 +206,11 @@
       <DependentUpon>HealthWorksDBModel.edmx</DependentUpon>
       <LastGenOutput>HealthWorksDBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="icons\HealthWorks logo.ico" />
+    <Content Include="icons\HealthWorks logo.png" />
+    <Content Include="icons\lock icon.png" />
+    <Content Include="icons\profile-user-icon.png" />
+    <Content Include="icons\username_at_icon_148690.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
