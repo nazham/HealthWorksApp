@@ -20,6 +20,8 @@ namespace HealthWorksApp
             InitializeComponent();
             appList = new List<AppointmentModel>();
         }
+
+
         private void btnAddAppointment_Click(object sender, EventArgs e)
         {
             AddAppointment aAppointment = new AddAppointment();

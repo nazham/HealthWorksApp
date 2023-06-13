@@ -13,10 +13,14 @@ namespace HealthWorksApp
 {
     public partial class ViewDoctors : Form
     {
+        List<DoctorModel> docList;
         public ViewDoctors()
         {
             InitializeComponent();
+            docList = new List<DoctorModel>();
         }
+
+
         private void btnAddDoctor_Click(object sender, EventArgs e)
         {
             AddEditDoctor aDoctors = new AddEditDoctor();
@@ -27,6 +31,8 @@ namespace HealthWorksApp
         }
 
 
+
+
         private void ViewDoctors_Load(object sender, EventArgs e)
         {
             
@@ -34,11 +40,19 @@ namespace HealthWorksApp
 
         }
 
+
+
         private void LoadDoctors()
         {
-            var doctorList = EFHelper.GetDoctors();
+            docList = EFHelper.GetDoctors();
 
-            foreach (var doctor in doctorList)
+            PrepareDoctorList(docList);
+            
+        }
+
+        private void PrepareDoctorList(List<DoctorModel> list)
+        {
+            foreach (var doctor in list)
             {
                 ListViewItem item = new ListViewItem();
                 item.Tag = doctor.ID;
@@ -107,32 +121,31 @@ namespace HealthWorksApp
 
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+
+
+        private void textSearch_TextChanged(object sender, EventArgs e)
         {
-            //string keyword = txtse
+            TextBox searchTB = (TextBox)sender;
+            if (searchTB.Text.Length > 0)
+            {
+                string searchText = searchTB.Text.ToLower();
+                var filterRecords = docList.Where(doc =>
+                                                  doc.Name.ToLower().Contains(searchText) ||
+                                                  doc.Specialization.ToLower().Contains(searchText)
+                                                  );
+
+                lstDoctors.Items.Clear();
+                PrepareDoctorList(filterRecords.ToList());
+            }
+
+            else
+            {
+                lstDoctors.Items.Clear();
+                LoadDoctors();
+
+            }
+
         }
-
-       // private void textSearch_TextChanged(object sender, EventArgs e);
-        //{
-        //    TextBox searchTB = (TextBox)sender;
-        //    if (searchTB.Text.Length > 0)
-        //    {
-        //        string searchText = searchTB.Text.ToLower();
-        //        var filterRecords = appList.Where(app =>
-        //                                          app.DoctorName.ToLower().Contains(searchText) ||
-        //                                          app.PatientName.ToLower().Contains(searchText)
-        //                                          );
-
-        //        lstAppointments.Items.Clear();
-        //        PrepareAppointmentList(filterRecords.ToList());
-        //    }
-
-        //    else
-        //    {
-        //        lstAppointments.Items.Clear();
-        //        LoadAppointments();
-        //    }
-        //}
     }
     }
 

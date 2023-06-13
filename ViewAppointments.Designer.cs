@@ -61,12 +61,12 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.43737F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.56263F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(914, 463);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(607, 461);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // flowLayoutPanel2
@@ -76,20 +76,20 @@
             this.flowLayoutPanel2.Controls.Add(this.btnDltAppointment);
             this.flowLayoutPanel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(465, 2);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(308, 2);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(446, 62);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(297, 62);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // btnPrint
             // 
             this.btnPrint.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPrint.Location = new System.Drawing.Point(3, 2);
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnPrint.Location = new System.Drawing.Point(2, 2);
+            this.btnPrint.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrint.Name = "btnPrint";
-            this.btnPrint.Size = new System.Drawing.Size(148, 58);
+            this.btnPrint.Size = new System.Drawing.Size(80, 30);
             this.btnPrint.TabIndex = 4;
             this.btnPrint.Text = "Print";
             this.btnPrint.UseVisualStyleBackColor = true;
@@ -99,10 +99,10 @@
             // 
             this.btnAddAppointment.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddAppointment.Location = new System.Drawing.Point(157, 10);
-            this.btnAddAppointment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddAppointment.Location = new System.Drawing.Point(86, 3);
+            this.btnAddAppointment.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddAppointment.Name = "btnAddAppointment";
-            this.btnAddAppointment.Size = new System.Drawing.Size(132, 41);
+            this.btnAddAppointment.Size = new System.Drawing.Size(86, 27);
             this.btnAddAppointment.TabIndex = 2;
             this.btnAddAppointment.Text = "Add";
             this.btnAddAppointment.UseVisualStyleBackColor = true;
@@ -112,10 +112,10 @@
             // 
             this.btnDltAppointment.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDltAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDltAppointment.Location = new System.Drawing.Point(295, 11);
-            this.btnDltAppointment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDltAppointment.Location = new System.Drawing.Point(176, 3);
+            this.btnDltAppointment.Margin = new System.Windows.Forms.Padding(2);
             this.btnDltAppointment.Name = "btnDltAppointment";
-            this.btnDltAppointment.Size = new System.Drawing.Size(144, 39);
+            this.btnDltAppointment.Size = new System.Drawing.Size(99, 28);
             this.btnDltAppointment.TabIndex = 3;
             this.btnDltAppointment.Text = "Delete";
             this.btnDltAppointment.UseVisualStyleBackColor = true;
@@ -124,6 +124,7 @@
             // lstAppointments
             // 
             this.lstAppointments.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.lstAppointments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.lstAppointments.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -133,12 +134,13 @@
             this.tableLayoutPanel1.SetColumnSpan(this.lstAppointments, 2);
             this.lstAppointments.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstAppointments.ForeColor = System.Drawing.SystemColors.Window;
             this.lstAppointments.GridLines = true;
             this.lstAppointments.HideSelection = false;
-            this.lstAppointments.Location = new System.Drawing.Point(3, 68);
-            this.lstAppointments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lstAppointments.Location = new System.Drawing.Point(2, 68);
+            this.lstAppointments.Margin = new System.Windows.Forms.Padding(2);
             this.lstAppointments.Name = "lstAppointments";
-            this.lstAppointments.Size = new System.Drawing.Size(908, 393);
+            this.lstAppointments.Size = new System.Drawing.Size(603, 391);
             this.lstAppointments.TabIndex = 2;
             this.lstAppointments.UseCompatibleStateImageBehavior = false;
             this.lstAppointments.View = System.Windows.Forms.View.Details;
@@ -146,22 +148,22 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Patient Name";
-            this.columnHeader1.Width = 220;
+            this.columnHeader1.Width = 155;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Doctor Name";
-            this.columnHeader2.Width = 189;
+            this.columnHeader2.Width = 179;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "Date";
-            this.columnHeader4.Width = 92;
+            this.columnHeader4.Width = 79;
             // 
             // columnHeader5
             // 
             this.columnHeader5.Text = "Time";
-            this.columnHeader5.Width = 100;
+            this.columnHeader5.Width = 81;
             // 
             // columnHeader6
             // 
@@ -176,23 +178,22 @@
             this.tableLayoutPanel2.Controls.Add(this.SearchAppointment, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtSearchApp, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 58F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(454, 58);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(300, 60);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // SearchAppointment
             // 
             this.SearchAppointment.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchAppointment.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchAppointment.Location = new System.Drawing.Point(296, 13);
-            this.SearchAppointment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SearchAppointment.Location = new System.Drawing.Point(189, 17);
+            this.SearchAppointment.Margin = new System.Windows.Forms.Padding(2);
             this.SearchAppointment.Name = "SearchAppointment";
-            this.SearchAppointment.Size = new System.Drawing.Size(131, 31);
+            this.SearchAppointment.Size = new System.Drawing.Size(98, 25);
             this.SearchAppointment.TabIndex = 7;
             this.SearchAppointment.Text = "SEARCH";
             this.SearchAppointment.UseVisualStyleBackColor = true;
@@ -201,10 +202,10 @@
             // 
             this.txtSearchApp.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSearchApp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchApp.Location = new System.Drawing.Point(4, 14);
-            this.txtSearchApp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtSearchApp.Location = new System.Drawing.Point(2, 17);
+            this.txtSearchApp.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearchApp.Name = "txtSearchApp";
-            this.txtSearchApp.Size = new System.Drawing.Size(260, 30);
+            this.txtSearchApp.Size = new System.Drawing.Size(173, 26);
             this.txtSearchApp.TabIndex = 6;
             this.txtSearchApp.TextChanged += new System.EventHandler(this.txtSearchApp_TextChanged);
             // 
@@ -226,13 +227,15 @@
             // 
             // ViewAppointments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 463);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.ClientSize = new System.Drawing.Size(607, 461);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ViewAppointments";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "View Appointments";
             this.Load += new System.EventHandler(this.ViewAppointments_Load);
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -59,12 +59,12 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.43737F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85.56263F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1040, 416);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(623, 500);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -74,22 +74,22 @@
             this.flowLayoutPanel2.Controls.Add(this.btnEditDoc);
             this.flowLayoutPanel2.Cursor = System.Windows.Forms.Cursors.Default;
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(528, 2);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(317, 2);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(509, 56);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(304, 68);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // btnAddDoctor
             // 
             this.btnAddDoctor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnAddDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddDoctor.Location = new System.Drawing.Point(3, 2);
-            this.btnAddDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnAddDoctor.Location = new System.Drawing.Point(2, 2);
+            this.btnAddDoctor.Margin = new System.Windows.Forms.Padding(2);
             this.btnAddDoctor.Name = "btnAddDoctor";
-            this.btnAddDoctor.Size = new System.Drawing.Size(137, 30);
+            this.btnAddDoctor.Size = new System.Drawing.Size(75, 25);
             this.btnAddDoctor.TabIndex = 2;
-            this.btnAddDoctor.Text = "Add Doctor";
+            this.btnAddDoctor.Text = "Add";
             this.btnAddDoctor.UseVisualStyleBackColor = true;
             this.btnAddDoctor.Click += new System.EventHandler(this.btnAddDoctor_Click);
             // 
@@ -97,12 +97,12 @@
             // 
             this.btnDltDoctor.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDltDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDltDoctor.Location = new System.Drawing.Point(146, 2);
-            this.btnDltDoctor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnDltDoctor.Location = new System.Drawing.Point(81, 2);
+            this.btnDltDoctor.Margin = new System.Windows.Forms.Padding(2);
             this.btnDltDoctor.Name = "btnDltDoctor";
-            this.btnDltDoctor.Size = new System.Drawing.Size(171, 30);
+            this.btnDltDoctor.Size = new System.Drawing.Size(75, 25);
             this.btnDltDoctor.TabIndex = 3;
-            this.btnDltDoctor.Text = "Delete Doctor";
+            this.btnDltDoctor.Text = "Delete";
             this.btnDltDoctor.UseVisualStyleBackColor = true;
             this.btnDltDoctor.Click += new System.EventHandler(this.btnDltDoctor_Click);
             // 
@@ -110,18 +110,19 @@
             // 
             this.btnEditDoc.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnEditDoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditDoc.Location = new System.Drawing.Point(323, 2);
-            this.btnEditDoc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEditDoc.Location = new System.Drawing.Point(160, 2);
+            this.btnEditDoc.Margin = new System.Windows.Forms.Padding(2);
             this.btnEditDoc.Name = "btnEditDoc";
-            this.btnEditDoc.Size = new System.Drawing.Size(171, 30);
+            this.btnEditDoc.Size = new System.Drawing.Size(75, 25);
             this.btnEditDoc.TabIndex = 4;
-            this.btnEditDoc.Text = "Edit Doctor";
+            this.btnEditDoc.Text = "Edit";
             this.btnEditDoc.UseVisualStyleBackColor = true;
             this.btnEditDoc.Click += new System.EventHandler(this.btnEditDoc_Click);
             // 
             // lstDoctors
             // 
             this.lstDoctors.Alignment = System.Windows.Forms.ListViewAlignment.Default;
+            this.lstDoctors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
             this.lstDoctors.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -131,12 +132,13 @@
             this.tableLayoutPanel1.SetColumnSpan(this.lstDoctors, 2);
             this.lstDoctors.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lstDoctors.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstDoctors.ForeColor = System.Drawing.SystemColors.Window;
             this.lstDoctors.GridLines = true;
             this.lstDoctors.HideSelection = false;
-            this.lstDoctors.Location = new System.Drawing.Point(3, 62);
-            this.lstDoctors.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.lstDoctors.Location = new System.Drawing.Point(2, 74);
+            this.lstDoctors.Margin = new System.Windows.Forms.Padding(2);
             this.lstDoctors.Name = "lstDoctors";
-            this.lstDoctors.Size = new System.Drawing.Size(1034, 352);
+            this.lstDoctors.Size = new System.Drawing.Size(619, 424);
             this.lstDoctors.TabIndex = 2;
             this.lstDoctors.UseCompatibleStateImageBehavior = false;
             this.lstDoctors.View = System.Windows.Forms.View.Details;
@@ -145,17 +147,17 @@
             // columnHeader1
             // 
             this.columnHeader1.Text = "Name";
-            this.columnHeader1.Width = 191;
+            this.columnHeader1.Width = 160;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Qualification";
-            this.columnHeader2.Width = 154;
+            this.columnHeader2.Width = 100;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Specailization";
-            this.columnHeader3.Width = 175;
+            this.columnHeader3.Width = 130;
             // 
             // columnHeader4
             // 
@@ -165,7 +167,7 @@
             // columnHeader5
             // 
             this.columnHeader5.Text = "MobileNo";
-            this.columnHeader5.Width = 239;
+            this.columnHeader5.Width = 130;
             // 
             // tableLayoutPanel2
             // 
@@ -175,47 +177,47 @@
             this.tableLayoutPanel2.Controls.Add(this.btnSearch, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.textSearch, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(517, 52);
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(309, 66);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // btnSearch
             // 
             this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(377, 10);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnSearch.Location = new System.Drawing.Point(221, 20);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(131, 31);
+            this.btnSearch.Size = new System.Drawing.Size(86, 25);
             this.btnSearch.TabIndex = 7;
             this.btnSearch.Text = "SEARCH";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // textSearch
             // 
             this.textSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.textSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textSearch.Location = new System.Drawing.Point(3, 11);
-            this.textSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textSearch.Location = new System.Drawing.Point(2, 20);
+            this.textSearch.Margin = new System.Windows.Forms.Padding(2);
             this.textSearch.Name = "textSearch";
-            this.textSearch.Size = new System.Drawing.Size(361, 30);
+            this.textSearch.Size = new System.Drawing.Size(215, 26);
             this.textSearch.TabIndex = 6;
+            this.textSearch.TextChanged += new System.EventHandler(this.textSearch_TextChanged);
             // 
             // ViewDoctors
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.BlanchedAlmond;
-            this.ClientSize = new System.Drawing.Size(1040, 416);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(51)))), ((int)(((byte)(73)))));
+            this.ClientSize = new System.Drawing.Size(623, 500);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ViewDoctors";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "View Doctors";

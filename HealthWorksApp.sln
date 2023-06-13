@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthWorksApp", "HealthWorksApp.csproj", "{8D9CDAC6-1B01-4BD2-A16F-60B3A7633D86}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "HealthWorksAppSetup", "..\HealthWorksAppSetup\HealthWorksAppSetup.vdproj", "{03E2137E-DC5C-4C64-BEE9-54EEEC1676BC}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "HealthWorksAppSetup", "..\HealthWorksAppSetup\HealthWorksAppSetup.vdproj", "{172E62B3-A81B-4CA9-A936-B46EF59549E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{8D9CDAC6-1B01-4BD2-A16F-60B3A7633D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D9CDAC6-1B01-4BD2-A16F-60B3A7633D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D9CDAC6-1B01-4BD2-A16F-60B3A7633D86}.Release|Any CPU.Build.0 = Release|Any CPU
-		{03E2137E-DC5C-4C64-BEE9-54EEEC1676BC}.Debug|Any CPU.ActiveCfg = Debug
-		{03E2137E-DC5C-4C64-BEE9-54EEEC1676BC}.Release|Any CPU.ActiveCfg = Release
+		{172E62B3-A81B-4CA9-A936-B46EF59549E8}.Debug|Any CPU.ActiveCfg = Debug
+		{172E62B3-A81B-4CA9-A936-B46EF59549E8}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

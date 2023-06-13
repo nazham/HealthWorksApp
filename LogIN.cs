@@ -16,8 +16,9 @@ namespace HealthWorksApp
         public LogIN()
         {
             InitializeComponent();
+           
         }
-
+        
 
         private void LogIN_Load(object sender, EventArgs e)
         {
@@ -39,7 +40,7 @@ namespace HealthWorksApp
             {
                 if (EFHelper.CheckCredentials(txtUserName.Text, txtPassword.Text))
                     {
-                        MainForm mainForm = new MainForm();
+                        Dashboard mainForm = new Dashboard();
                         this.Hide();
                         mainForm.ShowDialog();
                         
@@ -93,5 +94,7 @@ namespace HealthWorksApp
         {
 
         }
+
+       
     }
 }
